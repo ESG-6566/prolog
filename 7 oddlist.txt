@@ -1,0 +1,17 @@
+oddlist(List,Oddlist)
+__________________________________________________
+oddList([], []).
+
+oddList([Head|Tail], OddList) :-
+    1 is Head mod 2,      % If the head is odd, include it in the new list.
+    oddList(Tail, RestOddList),
+    OddList = [Head|RestOddList].
+
+oddList([Head|Tail], OddList) :-
+    0 is Head mod 2,      % If the head is even, skip it.
+    oddList(Tail, OddList).
+
+?- oddList([1, 2, 3, 4, 5, 6], OddList).
+____________________________________________________
+
+OddList = [1, 3, 5].

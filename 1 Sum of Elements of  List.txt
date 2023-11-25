@@ -1,0 +1,8 @@
+Sum of Elements of  List: sum(L,Sum)
+
+sum([], 0).
+sum([Head|Tail], Sum) :-
+    sum(Tail, TailSum),
+    Sum is Head + TailSum.
+
+?- sum([1, 2, 3, 4], Result).

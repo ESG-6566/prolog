@@ -1,0 +1,17 @@
+evenList(List,Evelist)
+________________________________________________________
+evenList([], []).
+
+evenList([Head|Tail], EvenList) :-
+    0 is Head mod 2,      % If the head is even, include it in the new list.
+    evenList(Tail, RestEvenList),
+    EvenList = [Head|RestEvenList].
+
+evenList([Head|Tail], EvenList) :-
+    1 is Head mod 2,      % If the head is odd, skip it.
+    evenList(Tail, EvenList).
+
+?- evenList([1, 2, 3, 4, 5, 6], EvenList).
+________________________________________________________
+
+EvenList = [2, 4, 6].

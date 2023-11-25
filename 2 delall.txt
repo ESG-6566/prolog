@@ -1,0 +1,15 @@
+delall(X,List,NewList)
+______________________________________________________________________
+delall(_, [], []).
+delall(X, [X|Tail], NewList) :-
+    % If the head of the list is X, skip it and delete on the tail.
+    delall(X, Tail, NewList).
+
+delall(X, [Head|Tail], [Head|NewTail]) :-
+    % If the head of the list is not X, keep it and delete on the tail.
+    dif(Head, X),  % Using dif/2 to check inequality.
+    delall(X, Tail, NewTail).
+
+?- delall(2, [1, 2, 3, 2, 4, 2, 5], NewList).
+______________________________________________________________________
+NewList = [1, 3, 4, 5].

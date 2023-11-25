@@ -1,0 +1,11 @@
+Length of a List: Len(List,N)
+_______________________________________________________________________
+len([], 0).
+
+len([_|Tail], N) :-  % Recursive case: N is the length of the Tail, and we increment it by 1.
+    len(Tail, TailLength),
+    N is TailLength + 1.
+
+?- len([1, 2, 3, 4], Length).
+________________________________________________________________
+Length = 4.
